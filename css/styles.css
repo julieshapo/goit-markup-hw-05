@@ -290,18 +290,21 @@ img {
 
   background-color: rgba(0, 0, 0, 0.2);
 
-  /* opacity: 1;  */
+  opacity: 1;
+  transform: scale(1);
 }
 
 .hero-backdrop.is-hidden {
   visibility: hidden;
-  opacity: 0;
   pointer-events: none;
 
-  /* transition: opacity var(--trans-duration) var(--cubic); */
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform var(--trans-duration) var(--cubic),
+    opacity var(--trans-duration) var(--cubic);
 }
 
-.hero-modal {+
+.hero-modal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -461,6 +464,9 @@ img {
   border-radius: 50%;
   background-color: var(--header-bg);
   fill: var(--client-section-grey);
+
+  transition: background-color var(--trans-duration) var(--cubic),
+    fill var(--trans-duration) var(--cubic);
 }
 
 /* .social-icon {
@@ -494,6 +500,9 @@ img {
   border: 1px solid var(--client-section-grey);
   border-radius: 4px;
   fill: var(--client-section-grey);
+
+  transition: border-color var(--trans-duration) var(--cubic),
+    fill var(--trans-duration) var(--cubic);
 }
 
 /* .client-icon {
@@ -528,6 +537,9 @@ img {
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0.03em;
+
+  transition: background-color var(--trans-duration) var(--cubic),
+    color var(--trans-duration) var(--cubic);
 }
 
 .projects-button:hover,
@@ -556,10 +568,38 @@ img {
   display: block;
 }
 
-.project-link:hover,
-.project-link:focus {
+.project-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  max-width: 100%;
+  max-height: 100%;
+  padding: 63px 24px;
+
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition: transform var(--trans-duration) var(--cubic);
+}
+
+.project-link:hover .project-overlay,
+.project-link:focus .project-overlay {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  transform: translateY(0);
+}
+
+.project-text {
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--header-bg);
 }
 
 .project-description {
@@ -622,10 +662,14 @@ img {
 
 .address-link.primary {
   color: var(--header-bg);
+
+  transition: color var(--trans-duration) var(--cubic);
 }
 
 .address-link.secondary {
   color: var(--text-footer-color);
+
+  transition: color var(--trans-duration) var(--cubic);
 }
 
 .address-link.primary:hover,
@@ -666,6 +710,8 @@ img {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   fill: var(--header-bg);
+
+  transition: background-color var(--trans-duration) var(--cubic);
 }
 
 /* .footer-social-icon {
