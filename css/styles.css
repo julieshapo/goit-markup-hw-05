@@ -105,12 +105,19 @@ img {
   background-color: var(--header-bg);
 }
 
+.title {
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
 /* хедер */
 .header {
   background-color: var(--header-bg);
   border-bottom: 1px solid var(--header-frame);
   padding-top: 24px;
   padding-bottom: 25px;
+  height: 80px;
 }
 
 .header-items {
@@ -153,14 +160,14 @@ img {
 } */
 
 .site-nav-link.link {
-  display: block;
+  position: relative;
 
   color: var(--secondary-text-color);
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  /* padding-top: 7.5px;
-  padding-bottom: 7.5px; */
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .site-nav-link:hover,
@@ -170,6 +177,20 @@ img {
 
 .site-nav-link.current {
   color: var(--accent-color);
+}
+
+.current::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .contacts {
@@ -240,14 +261,47 @@ img {
   min-width: 216px;
   margin: 0 auto;
 
+  display: flex;
+
   background-color: var(--accent-color);
   color: var(--header-bg);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   font-weight: 700;
   line-height: 1.8;
-  display: flex;
   letter-spacing: 0.06em;
+}
+
+.hero-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 1024px;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.hero-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+
+  background-color: var(--header-bg);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 /* секції Наші переваги і Чим ми займаємося */
@@ -284,9 +338,6 @@ img {
 .features-title {
   margin-bottom: 10px;
   color: var(--secondary-text-color);
-  font-size: 14px;
-  line-height: 1.14;
-  text-transform: uppercase;
 }
 
 .features-text {
@@ -300,6 +351,29 @@ img {
 .work-list {
   display: flex;
   gap: 30px;
+}
+
+.work-thumb {
+  position: relative;
+  z-index: 0;
+}
+
+.work-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
+}
+
+.work-title {
+  color: var(--header-bg);
 }
 
 /* секція Команда */
