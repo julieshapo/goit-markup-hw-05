@@ -195,7 +195,7 @@ img {
   left: 0;
 
   width: 100%;
-  height: 2px;
+  height: 4px;
 
   border-radius: 2px;
   background-color: var(--accent-color);
@@ -293,8 +293,10 @@ img {
 
   background-color: rgba(0, 0, 0, 0.2);
 
+  visibility: visible;
   opacity: 1;
-  transition: transform var(--trans-duration) var(--cubic);
+  transition: opacity var(--trans-duration) var(--cubic),
+    visibility var(--trans-duration) var(--cubic);
 }
 
 .hero-backdrop.is-hidden {
@@ -336,6 +338,7 @@ img {
 
   width: 30px;
   height: 30px;
+  background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
@@ -545,7 +548,8 @@ img {
   letter-spacing: 0.03em;
 
   transition: background-color var(--trans-duration) var(--cubic),
-    color var(--trans-duration) var(--cubic);
+    color var(--trans-duration) var(--cubic),
+    box-shadow var(--trans-duration) var(--cubic);
 }
 
 .projects-button:hover,
@@ -591,7 +595,8 @@ img {
   background-color: rgba(33, 150, 243, 0.9);
 
   transform: translateY(100%);
-  transition: transform var(--trans-duration) var(--cubic);
+  transition: transform var(--trans-duration) var(--cubic),
+    box-shadow var(--trans-duration) var(--cubic);
 }
 
 .project-link:hover .project-overlay,
