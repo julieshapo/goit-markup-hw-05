@@ -246,7 +246,7 @@ img {
   max-width: 1600px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   padding-top: 200px;
   padding-bottom: 200px;
   margin: 0 auto;
@@ -341,6 +341,12 @@ img {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+
+  transition: background-color var(--trans-duration) var(--cubic);
+}
+
+.modal-btn-close:hover {
+  background-color: var(--accent-color);
 }
 
 /* секції Наші переваги і Чим ми займаємося */
